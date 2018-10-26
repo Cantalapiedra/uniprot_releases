@@ -9,12 +9,16 @@ CPCantalapiedra 2018
 ```
 git clone https://github.com/Cantalapiedra/uniprot_releases.git
 ```
+
 #### HOWTO
 
 
-###### Config file
+##### Config file
 
-Prior to use for the first time (or if some Uniprot values change) check and configure the values within a plain text config file. Example:
+Prior to use for the first time 
+(or if some Uniprot values change) 
+check and configure the values within 
+a plain text file called config. Example:
 
 ```
 cat config
@@ -26,25 +30,27 @@ UNIPROT_CURRENT	pub/databases/uniprot/knowledgebase
 PREV_RELEASES_LIST	prev_releases.list
 RELEASES_DIR	releases
 ```
-###### Check current uniprot release
 
-Run check_current.sh
-The script will report the current release found in the Uniprot server, and whether the release version has already been downloaded previously or if it is new
+##### Check current uniprot release
 
 ```
 ./check_current.sh
 ```
 
-###### Download current uniprot release
+The script will report the current release 
+found in the Uniprot server, and whether 
+the release version has already been downloaded 
+previously or if it is new
 
-Run download_current.sh
+##### Download current uniprot release
+
+```
+./download_current.sh
+```
+
 The script just checks which is the current
 release in the Uniprot server, and downloads
 it. It doesn't check whether the release
 has already been downloaded or not.
 The release will be downloaded (overwriting) to
 releases/RELEASE_VERSION
-
-```
-./download_current.sh
-```
