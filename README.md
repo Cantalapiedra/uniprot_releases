@@ -10,6 +10,14 @@ CPCantalapiedra 2018
 git clone https://github.com/Cantalapiedra/uniprot_releases.git
 ```
 
+##### Dependencies
+
+This scripts use ncftpget to connect to the Uniprot FTP server.
+
+```
+sudo apt-get install ncftp
+```
+
 #### HOWTO
 
 
