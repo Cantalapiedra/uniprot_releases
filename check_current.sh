@@ -14,7 +14,7 @@ ncftpget -v "$UNIPROT_FTP" ./ "$UNIPROT_RELNOTES";
 
 RELNOTES=$(basename "$UNIPROT_RELNOTES");
 
-release=$(cat "$RELNOTES" | head -1 | cut -d $'\t' -f 3);
+release=$(cat "$RELNOTES" | head -1 | cut -d $' ' -f 3);
 
 echo "Current release: $release";
 

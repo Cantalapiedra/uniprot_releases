@@ -13,13 +13,21 @@ ncftpget -v "$UNIPROT_FTP" ./ "$UNIPROT_RELNOTES";
 
 RELNOTES=$(basename "$UNIPROT_RELNOTES");
 
-release=$(cat "$RELNOTES" | head -1 | cut -d $'\t' -f 3);
+release=$(cat "$RELNOTES" | head -1 | cut -d $' ' -f 3);
 
 echo "Current release: $release";
 
 ##
 
 RELEASES_DIR=$(grep "^RELEASES_DIR" config | cut -d $'\t' -f 2);
+
+if [ ! -d "$RELEASES_DIR" ]; then
+	mkdir "$RELEASES_DIR";
+	if [ $? -ne 0 ]; then
+		echo "Couldn't create "$RELEASES_DIR" directory.";
+		exit -1;
+	fi;
+fi;
 
 echo "Preparing to download uniprot $release to $RELEASES_DIR";
 
