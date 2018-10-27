@@ -21,7 +21,7 @@ echo "Current release: $release";
 PREV_RELEASES_LIST=$(grep "^PREV_RELEASES_LIST" config | cut -d $'\t' -f 2);
 
 if [ -f "$PREV_RELEASES_LIST" ]; then
-        if grep -q -w "$release" "$PREV_RELEASES_LIST"; then
+        if grep -q -w "^$release" "$PREV_RELEASES_LIST"; then
                 echo "Release $release already exists.";
         else
                 echo "Release $release is new. (1)";
