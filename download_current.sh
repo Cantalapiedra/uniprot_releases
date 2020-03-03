@@ -22,7 +22,7 @@ echo "Current release: $release";
 RELEASES_DIR=$(grep "^RELEASES_DIR" config | cut -d $'\t' -f 2);
 
 if [ ! -d "$RELEASES_DIR" ]; then
-	mkdir "$RELEASES_DIR";
+	mkdir -p "$RELEASES_DIR"/"$release";
 	if [ $? -ne 0 ]; then
 		echo "Couldn't create "$RELEASES_DIR" directory.";
 		exit -1;
@@ -31,7 +31,7 @@ fi;
 
 echo "Preparing to download uniprot $release to $RELEASES_DIR";
 
-ncftpget -R "$UNIPROT_FTP" "$RELEASES_DIR"/"$release" "$UNIPROT_CURRENT"
+ncftpget -R "$UNIPROT_FTP" "$RELEASES_DIR"/"$release" "$UNIPROT_CURRENT"/uniprot_sprot.dat.gz
 
 if [ $? -eq 0 ]; then
 	PREV_RELEASES_LIST=$(grep "^PREV_RELEASES_LIST" config | cut -d $'\t' -f 2);
